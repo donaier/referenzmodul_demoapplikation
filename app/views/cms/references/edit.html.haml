@@ -1,0 +1,7 @@
+%h1= t('.title')
+
+= render 'form'
+
+= link_to t('cms.show'), cms_reference_path(@cms_reference)
+\|
+= link_to t('cms.back'), cms_references_path

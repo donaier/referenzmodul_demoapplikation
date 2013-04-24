@@ -1,0 +1,10 @@
+de:
+  cms:
+    references:
+      index:
+        title: Referenzverwaltung
+        new: Neue Referenz
+      edit:
+        title: Referenz Bearbeiten
+      new:
+        title: Neue Referenz

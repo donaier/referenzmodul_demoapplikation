@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b #{Reference.human_attribute_name :title}:
+  = @cms_reference.title
+%p
+  %b #{Reference.human_attribute_name :page_url}:
+  = @cms_reference.page_url
+%p
+  %b #{Reference.human_attribute_name :customer}:
+  = @cms_reference.customer
+%p
+  %b #{Reference.human_attribute_name :year}:
+  = @cms_reference.year
+%p
+  %b #{Reference.human_attribute_name :short_description}:
+  = @cms_reference.short_description
+%p
+  %b #{Reference.human_attribute_name :description}:
+  = @cms_reference.description
+%p
+  %b #{Reference.human_attribute_name :position}:
+  = @cms_reference.position
+%p
+  %b #{Reference.human_attribute_name :customer_url}:
+  = @cms_reference.customer_url
+%p
+  %b #{Reference.human_attribute_name :testimonial_company}:
+  = @cms_reference.testimonial_company
+%p
+  %b #{Reference.human_attribute_name :testimonial_person}:
+  = @cms_reference.testimonial_person
+%p
+  %b #{Reference.human_attribute_name :testimonial_quote}:
+  = @cms_reference.testimonial_quote
+%p
+  %b #{Reference.human_attribute_name :showcase}:
+  = @cms_reference.showcase
+%p
+  %b #{Reference.human_attribute_name :showcase_position}:
+  = @cms_reference.showcase_position
+%p
+  %b #{Reference.human_attribute_name :status}:
+  = @cms_reference.status
+
+= link_to t('cms.edit'), edit_cms_reference_path(@cms_reference)
+\|
+= link_to t('cms.back'), cms_references_path

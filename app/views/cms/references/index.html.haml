@@ -1,0 +1,20 @@
+%h1= t('.title')
+
+.row-fluid.actions
+  .pull-right.padded
+    = link_to new_cms_reference_path, :class => 'btn btn-primary' do
+      %i.icon-plus-sign.icon-white
+      #{ t('.new') }
+
+%ul#reference-tabs.nav.nav-tabs
+  %li.active
+    = link_to 'Alle Referenzen', '#all-references'
+  %li
+    = link_to 'Showcase Referenzen', '#showcase'
+
+.tab-content
+  #all-references.tab-pane.active
+    = render 'index_table', :references => @cms_references
+
+  #showcase.tab-pane
+    = render 'index_table', :references => @cms_references_showcase

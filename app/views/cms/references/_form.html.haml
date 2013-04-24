@@ -17,7 +17,8 @@
     = f.input :showcase_position
     = f.input :status,
               :collection => Reference::REFERENCE_STATES.collect { |x| [ I18n.t(x), x] },
-              :include_blank => false
+              :include_blank => false,
+              :as => :radio_buttons
 
   .form-actions
     = f.button :submit

@@ -15,7 +15,9 @@
     = f.input :testimonial_quote
     = f.input :showcase
     = f.input :showcase_position
-    = f.input :status, :collection => Reference::REFERENCE_STATES, :include_blank => false
+    = f.input :status,
+              :collection => Reference::REFERENCE_STATES.collect { |x| [ I18n.t(x), x] },
+              :include_blank => false
 
   .form-actions
     = f.button :submit

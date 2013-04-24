@@ -19,3 +19,7 @@ de:
 
     models:
       reference: Referenz
+
+  active: Aktiv
+  inactive: Inaktiv
+  archive: Archiv

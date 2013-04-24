@@ -1,4 +1,4 @@
-= simple_form_for([:cms, @cms_reference]) do |f|
+= simple_form_for([:cms, @cms_reference], :html => { :class => 'form-horizontal' } ) do |f|
   = f.error_notification
 
   .form-inputs
@@ -15,7 +15,7 @@
     = f.input :testimonial_quote
     = f.input :showcase
     = f.input :showcase_position
-    = f.input :status
+    = f.input :status, :collection => Reference::REFERENCE_STATES, :include_blank => false
 
   .form-actions
     = f.button :submit

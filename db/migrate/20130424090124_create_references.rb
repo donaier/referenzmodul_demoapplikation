@@ -14,7 +14,7 @@ class CreateReferences < ActiveRecord::Migration
       t.text :testimonial_quote
       t.boolean :showcase
       t.integer :showcase_position
-      t.string :status
+      t.string :status, :default => 'inactive'
 
       t.timestamps
     end

@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(:version => 20130424090124) do
     t.text     "testimonial_quote"
     t.boolean  "showcase"
     t.integer  "showcase_position"
-    t.string   "status"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "status",              :default => "inactive"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
 end

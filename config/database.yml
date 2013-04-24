@@ -1,0 +1,30 @@
+production:
+  adapter: postgresql
+  database: referenzmodul_demoapplikation_production
+  username: referenzmodul_demoapplikation
+  password: <%= begin IO.read("#{ENV['HOME']}/.config/referenzmodul_demoapplikation_production/db") rescue "" end %>
+  encoding: unicode
+  pool: 5
+
+staging:
+  adapter: postgresql
+  database: referenzmodul_demoapplikation_staging
+  username: referenzmodul_demoapplikation
+  password: <%= begin IO.read("#{ENV['HOME']}/.config/referenzmodul_demoapplikation_staging/db") rescue "" end %>
+  encoding: unicode
+  pool: 5
+
+development:
+  adapter: postgresql
+  database: referenzmodul_demoapplikation_development
+  username: screenconcept
+  password:
+  host: localhost
+  encoding: unicode
+  pool: 5
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000

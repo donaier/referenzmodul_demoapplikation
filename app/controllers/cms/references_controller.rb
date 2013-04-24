@@ -3,7 +3,7 @@ class Cms::ReferencesController < Kuhsaft::Cms::AdminController
   # GET /cms/references.json
   def index
     @cms_references = Reference.all
-    @cms_references_showcase = Reference.showcase
+    @cms_references_showcase = Reference.unscoped.showcase
 
     respond_to do |format|
       format.html # index.html.erb

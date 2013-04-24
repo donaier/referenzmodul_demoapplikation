@@ -8,9 +8,9 @@ class Reference < ActiveRecord::Base
 
   validates_presence_of :title, :customer, :position, :status, :year
 
-  scope :showcase, where(:showcase => true).order('showcase_position, position')
-
   default_scope order('position')
+
+  scope :showcase, where(:showcase => true).order('showcase_position ASC')
 
   after_initialize do
     assign_position

@@ -1,0 +1,24 @@
+= simple_form_for([:cms, @cms_reference], :html => { :class => 'form-horizontal' } ) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :page_url
+    = f.input :customer
+    = f.input :year
+    = f.input :short_description
+    = f.input :description
+    = f.input :position
+    = f.input :customer_url
+    = f.input :testimonial_company
+    = f.input :testimonial_person
+    = f.input :testimonial_quote
+    = f.input :showcase
+    = f.input :showcase_position
+    = f.input :status,
+              :collection => Reference::REFERENCE_STATES.collect { |x| [ I18n.t(x), x] },
+              :include_blank => false,
+              :as => :radio_buttons
+
+  .form-actions
+    = f.button :submit

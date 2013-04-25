@@ -13,6 +13,8 @@ de:
 
     navigation:
       items:
+        references: Referenzen
+
 
   simple_form:
     "yes": 'Ja'

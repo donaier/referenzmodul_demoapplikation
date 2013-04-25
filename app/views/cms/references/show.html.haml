@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%h1= @cms_reference.title
+%hr
+
+%ul#reference-tabs.nav.nav-tabs
+  %li.active
+    = link_to t('.reference_overview'), '#reference-overview'
+  %li
+    = link_to t('.reference_assets'), '#reference-assets'
+
+.tab-content
+  #reference-overview.tab-pane.active
+    = render 'reference_detail'
+
+  #reference-assets.tab-pane
+    = render 'reference_assets'
+
+
+= link_to t('cms.edit'), edit_cms_reference_path(@cms_reference)
+\|
+= link_to t('cms.back'), cms_references_path

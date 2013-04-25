@@ -7,7 +7,7 @@
   %li.active
     = link_to t('.reference_overview'), '#reference-overview'
   %li
-    = link_to t('.reference_assets'), '#reference-assets'
+    = link_to "#{t('.reference_assets')} (#{@cms_reference.reference_assets.count})", '#reference-assets'
 
 .tab-content
   #reference-overview.tab-pane.active

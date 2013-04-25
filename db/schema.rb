@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20130425082933) do
 
   create_table "reference_assets", :force => true do |t|
     t.integer  "reference_id"
+    t.string   "title"
+    t.boolean  "main_asset",   :default => false
     t.string   "type"
     t.integer  "position"
     t.string   "size"
@@ -88,8 +90,8 @@ ActiveRecord::Schema.define(:version => 20130425082933) do
     t.boolean  "youtube"
     t.string   "href"
     t.text     "embed_code"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "references", :force => true do |t|

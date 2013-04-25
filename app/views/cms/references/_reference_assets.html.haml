@@ -2,19 +2,25 @@
   .pull-right.padded
     = link_to new_cms_reference_reference_asset_path(@cms_reference, :type => ReferenceAsset::TYPE_IMAGE), :class => 'btn btn-primary' do
       %i.icon-plus-sign.icon-white
-      #{ t('.new') }
-%table.table.table-bordered
-  %tr
-    %th= t('cms.references.assets.images')
-  - @cms_reference.image_assets.each do |image_asset|
-    %tr
-      %td=image_tag image_asset.asset.small
-
-.row-fluid.actions
-  .pull-right.padded
+      #{ t('.new_image') }
     = link_to new_cms_reference_reference_asset_path(@cms_reference, :type => ReferenceAsset::TYPE_VIDEO), :class => 'btn btn-primary' do
       %i.icon-plus-sign.icon-white
-      #{ t('.new') }
-%table.table.table-bordered
+      #{ t('.new_video') }
+%table.table.table-bordered.sortable-table
   %tr
-    %th= t('cms.references.assets.movies')
+    %th
+    %th= t('cms.references.assets')
+    %th
+    %th
+  - @cms_reference.reference_assets.each do |asset|
+    %tr.sortable-row
+      %td
+        .handle
+          %i.icon-resize-vertical
+        = form_for [:cms, :reference, asset], :as => :reference_asset, :url => cms_reference_reference_asset_path(asset.reference, asset), :remote => true do |f|
+          = f.hidden_field :position, :class => 'position-field'
+      %td
+        = image_tag asset.asset.small if asset.type == ReferenceAsset::TYPE_IMAGE
+        = asset.title if asset.type == ReferenceAsset::TYPE_VIDEO
+      %td= link_to t('cms.edit'), edit_cms_reference_reference_asset_path(@cms_reference, asset)
+      %td= link_to t('cms.destroy'), cms_reference_reference_asset_path(@cms_reference, asset), :method => :delete, :data => { confirm: t('cms.are_you_sure') }

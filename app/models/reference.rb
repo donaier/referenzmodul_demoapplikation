@@ -8,7 +8,10 @@ class Reference < ActiveRecord::Base
 
   validates_presence_of :title, :customer, :position, :status, :year
 
-  has_many :reference_assets
+  has_many :reference_assets, :dependent => :destroy
+
+  has_many :images, :class_name => ReferenceAssets::ReferenceImage
+  has_many :videos, :class_name => ReferenceAssets::ReferenceVideo
 
   default_scope order('position')
 
@@ -21,10 +24,6 @@ class Reference < ActiveRecord::Base
 
   before_save do
     assign_showcase_position
-  end
-
-  def image_assets
-    self.reference_assets.where(:type => ReferenceAsset::TYPE_IMAGE)
   end
 
   private

@@ -12,7 +12,8 @@ de:
       success: "%{name} wurde erfolgreich aktualisiert"
 
     navigation:
-      items:references:TRANSLATEME
+      items:
+        references: Referenzen
 
 
   simple_form:

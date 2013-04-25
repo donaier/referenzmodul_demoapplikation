@@ -1,0 +1,25 @@
+de:
+  activerecord:
+    attributes:
+      reference:
+        title: Titel
+        page_url: Seiten Url
+        customer: Kunde
+        year: Jahr
+        short_description: Kurzbeschreibung
+        description: Beschreibung
+        position: Position
+        customer_url: Kunden Url
+        testimonial_company: Testimonial Firma
+        testimonial_person: Testimonial Person
+        testimonial_quote: Testimonial Zitat
+        showcase: Showcase
+        showcase_position: Showcase Position
+        status: Status
+
+    models:
+      reference: Referenz
+
+  active: Aktiv
+  inactive: Inaktiv
+  archive: Archiv

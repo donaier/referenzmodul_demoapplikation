@@ -1,7 +1,20 @@
+.row-fluid.actions
+  .pull-right.padded
+    = link_to new_cms_reference_reference_asset_path(@cms_reference, :type => ReferenceAsset::TYPE_IMAGE), :class => 'btn btn-primary' do
+      %i.icon-plus-sign.icon-white
+      #{ t('.new') }
 %table.table.table-bordered
   %tr
     %th= t('cms.references.assets.images')
+  - @cms_reference.image_assets.each do |image_asset|
+    %tr
+      %td=image_tag image_asset.asset.small
 
+.row-fluid.actions
+  .pull-right.padded
+    = link_to new_cms_reference_reference_asset_path(@cms_reference, :type => ReferenceAsset::TYPE_VIDEO), :class => 'btn btn-primary' do
+      %i.icon-plus-sign.icon-white
+      #{ t('.new') }
 %table.table.table-bordered
   %tr
     %th= t('cms.references.assets.movies')

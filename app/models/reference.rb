@@ -8,6 +8,8 @@ class Reference < ActiveRecord::Base
 
   validates_presence_of :title, :customer, :position, :status, :year
 
+  has_many :reference_assets
+
   default_scope order('position')
 
   scope :showcase, where(:showcase => true).order('showcase_position ASC')
@@ -19,6 +21,10 @@ class Reference < ActiveRecord::Base
 
   before_save do
     assign_showcase_position
+  end
+
+  def image_assets
+    self.reference_assets.where(:type => ReferenceAsset::TYPE_IMAGE)
   end
 
   private

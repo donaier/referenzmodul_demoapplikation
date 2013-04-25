@@ -1,0 +1,6 @@
+%h1= t('.title')
+%hr
+
+= render "cms/reference_assets/#{@cms_reference_asset.type.demodulize.underscore}/form"
+
+= link_to t('cms.back'), cms_reference_path(@cms_reference_asset.reference)

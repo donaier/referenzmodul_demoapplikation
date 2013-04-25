@@ -1,0 +1,59 @@
+%table.table.table-bordered
+  %tr
+    %th
+      #{Reference.human_attribute_name :page_url}:
+    %td
+      = @cms_reference.page_url
+  %tr
+    %th
+      #{Reference.human_attribute_name :customer}:
+    %td
+      = @cms_reference.customer
+  %tr
+    %th
+      #{Reference.human_attribute_name :year}:
+    %td
+      = @cms_reference.year
+  %tr
+    %th
+      #{Reference.human_attribute_name :short_description}:
+    %td
+      = @cms_reference.short_description
+  %tr
+    %th
+      #{Reference.human_attribute_name :description}:
+    %td
+      = @cms_reference.description
+  %tr
+    %th
+      #{Reference.human_attribute_name :customer_url}:
+    %td
+      = @cms_reference.customer_url
+  %tr
+    %th
+      #{Reference.human_attribute_name :testimonial_company}:
+    %td
+      = @cms_reference.testimonial_company
+  %tr
+    %th
+      #{Reference.human_attribute_name :testimonial_person}:
+    %td
+      = @cms_reference.testimonial_person
+  %tr
+    %th
+      #{Reference.human_attribute_name :testimonial_quote}:
+    %td
+      = @cms_reference.testimonial_quote
+  %tr
+    %th
+      #{Reference.human_attribute_name :showcase}:
+    %td
+      - if @cms_reference.showcase
+        %i.icon-ok
+      - else
+        %i.icon-remove
+  %tr
+    %th
+      #{Reference.human_attribute_name :status}:
+    %td{ :class => "#{@cms_reference.status}-cell" }
+      = @cms_reference.status

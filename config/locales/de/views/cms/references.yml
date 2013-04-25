@@ -4,7 +4,15 @@ de:
       index:
         title: Referenzverwaltung
         new: Neue Referenz
+        all_references: Alle Referenzen
+        showcase_references: Showcase Referenzen
       edit:
         title: Referenz Bearbeiten
       new:
         title: Neue Referenz
+      show:
+        reference_overview: Übersicht
+        reference_assets: Assets
+      assets:
+        images: Bilder
+        movies: Videos

@@ -38,20 +38,7 @@
             %td= cms_reference.customer
             %td= cms_reference.page_url
             %td= cms_reference.year
-            / %td{ :class => "#{cms_reference.status}-cell" }= cms_reference.status
-            %td
-              .btn-group{ :'data-toggle' => 'buttons-radio'}
-                %button.btn{ :class => ('btn-success active' if cms_reference.active?) }
-                  %i.icon-ok-circle
-                  = t('active')
-                %button.btn{ :class => ('btn-danger active' if cms_reference.inactive?) }
-                  %i.icon-ban-circle
-                  = t('inactive')
-                %button.btn{ :class => ('btn-info active' if cms_reference.archive?) }
-                  %i.icon-folder-open
-                  = t('archive')
-
-
+            %td{ :class => "#{cms_reference.status}-cell" }= cms_reference.status
             %td= link_to t('cms.show'), cms_reference_path(cms_reference)
             %td= link_to t('cms.edit'), edit_cms_reference_path(cms_reference)
             %td= link_to t('cms.destroy'), cms_reference_path(cms_reference), method: :delete, data: { confirm: t('cms.are_you_sure') }
@@ -89,4 +76,3 @@
             %td= link_to t('cms.destroy'), cms_reference_path(cms_reference), method: :delete, data: { confirm: t('cms.are_you_sure') }
 
     %br
-

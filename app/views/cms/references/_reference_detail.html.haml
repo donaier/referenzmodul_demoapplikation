@@ -55,5 +55,15 @@
   %tr
     %th
       #{Reference.human_attribute_name :status}:
-    %td{ :class => "#{@cms_reference.status}-cell" }
-      = @cms_reference.status
+
+    %td
+      .btn-group{ :'data-toggle' => 'buttons-radio'}
+        %button.btn{ :class => ('btn-success active' if @cms_reference.active?) }
+          %i.icon-ok-circle
+          = t('active')
+        %button.btn{ :class => ('btn-danger active' if @cms_reference.inactive?) }
+          %i.icon-ban-circle
+          = t('inactive')
+        %button.btn{ :class => ('btn-info active' if @cms_reference.archive?) }
+          %i.icon-folder-open
+          = t('archive')

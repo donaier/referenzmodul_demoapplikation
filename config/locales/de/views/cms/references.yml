@@ -12,7 +12,7 @@ de:
         title: Neue Referenz
       show:
         reference_overview: Übersicht
-        reference_assets: Assets
-      assets:
-        images: Bilder
-        movies: Videos
+        reference_assets: Medien
+      assets: Medien
+      reference_assets:
+        new: Neues Asset

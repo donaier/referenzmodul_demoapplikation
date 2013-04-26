@@ -8,6 +8,11 @@ class Reference < ActiveRecord::Base
 
   validates_presence_of :title, :customer, :position, :status, :year
 
+  has_many :reference_assets, :dependent => :destroy
+
+  has_many :images, :class_name => ReferenceAssets::ReferenceImage
+  has_many :videos, :class_name => ReferenceAssets::ReferenceVideo
+
   default_scope order('position')
 
   scope :showcase, where(:showcase => true).order('showcase_position ASC')

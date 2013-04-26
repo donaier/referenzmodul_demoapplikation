@@ -1,0 +1,8 @@
+%h1= t('.title')
+%hr
+
+= simple_form_for([:cms, :reference, @cms_reference_asset], :as => :reference_asset, :url => cms_reference_reference_asset_path(@cms_reference_asset.reference, @cms_reference_asset), :html => { :class => 'form-horizontal' } ) do |f|
+
+  = render "cms/reference_assets/#{@cms_reference_asset.type.demodulize.underscore}/form", :f => f
+
+= link_to t('cms.back'), cms_reference_path(@cms_reference_asset.reference)

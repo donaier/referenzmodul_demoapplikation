@@ -1,0 +1,19 @@
+= f.error_notification
+
+- if @cms_reference_asset.asset.present?
+  .control-group
+    %label.control-label Bild
+    .controls
+      = image_tag @cms_reference_asset.asset.small
+
+.form-inputs
+  = f.input :main_asset
+  = f.input :asset
+  = f.input :size, :collection => ReferenceAsset::ASSET_SIZES, :as => :radio_buttons
+  = f.input :position
+  = f.input :text
+  = f.hidden_field :type
+  = f.hidden_field :reference_id
+
+.form-actions
+  = f.button :submit

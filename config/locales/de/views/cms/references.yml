@@ -13,6 +13,15 @@ de:
       show:
         reference_overview: Übersicht
         reference_assets: Medien
+        reference_topics: Themen
+        reference_branches: Branchen
+        reference_services: Leistungen
       assets: Medien
       reference_assets:
         new: Neues Asset
+      reference_branches:
+        select_branches: Branchen auswählen
+      reference_services:
+        select_services: Leistungen auswählen
+      reference_topics:
+        select_topics: Themen auswählen

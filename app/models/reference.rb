@@ -5,7 +5,7 @@ class Reference < ActiveRecord::Base
   attr_accessible :customer, :customer_url, :description, :page_url, :position,
   :short_description, :showcase, :showcase_position, :status,
   :testimonial_company, :testimonial_person, :testimonial_quote, :title, :year,
-  :reference_branch_ids, :reference_service_ids
+  :reference_branch_ids, :reference_service_ids, :reference_topic_ids
 
   validates_presence_of :title, :customer, :position, :status, :year
 
@@ -16,6 +16,7 @@ class Reference < ActiveRecord::Base
 
   has_and_belongs_to_many :reference_branches
   has_and_belongs_to_many :reference_services
+  has_and_belongs_to_many :reference_topics
 
   default_scope order('position')
 

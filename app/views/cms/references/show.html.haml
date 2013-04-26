@@ -9,6 +9,8 @@
   %li
     = link_to "#{t('.reference_assets')} (#{@cms_reference.reference_assets.count})", '#reference-assets'
   %li
+    = link_to "#{t('.reference_topics')} (#{@cms_reference.reference_topics.count})", '#reference-topics'
+  %li
     = link_to "#{t('.reference_branches')} (#{@cms_reference.reference_branches.count})", '#reference-branches'
   %li
     = link_to "#{t('.reference_services')} (#{@cms_reference.reference_services.count})", '#reference-services'
@@ -22,6 +24,9 @@
 
   #reference-assets.tab-pane
     = render 'reference_assets'
+
+  #reference-topics.tab-pane
+    = render 'reference_topics'
 
   #reference-branches.tab-pane
     = render 'reference_branches'

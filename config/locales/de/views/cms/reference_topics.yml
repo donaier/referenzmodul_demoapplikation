@@ -1,10 +1,7 @@
 de:
   cms:
     reference_topics:
-      index:
-        title: TRANSLATEME
-        new: TRANSLATEME
       edit:
-        title: TRANSLATEME
+        title: Thema bearbeiten
       new:
-        title: TRANSLATEME
+        title: Neues Thema erstellen

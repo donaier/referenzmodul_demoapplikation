@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426110808) do
+ActiveRecord::Schema.define(:version => 20130426122420) do
 
   create_table "kuhsaft_assets", :force => true do |t|
     t.string   "file"
@@ -137,6 +137,14 @@ ActiveRecord::Schema.define(:version => 20130426110808) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
+
+  create_table "reference_topics_references", :id => false, :force => true do |t|
+    t.integer "reference_id"
+    t.integer "reference_topic_id"
+  end
+
+  add_index "reference_topics_references", ["reference_id"], :name => "index_reference_topics_references_on_reference_id"
+  add_index "reference_topics_references", ["reference_topic_id"], :name => "index_reference_topics_references_on_reference_topic_id"
 
   create_table "references", :force => true do |t|
     t.string   "title"

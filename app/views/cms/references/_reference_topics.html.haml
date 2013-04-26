@@ -8,6 +8,10 @@
       %td= topic.name
       %td= topic.text
 
+%br
+%h3= t('.select_topics')
+%hr
+
 = simple_form_for([:cms, @cms_reference], :html => { :class => 'form-horizontal' } ) do |f|
   = f.error_notification
 

@@ -8,6 +8,10 @@
       %td= ref_service.name
       %td= ref_service.text
 
+%br
+%h3= t('.select_services')
+%hr
+
 = simple_form_for([:cms, @cms_reference], :html => { :class => 'form-horizontal' } ) do |f|
   = f.error_notification
 

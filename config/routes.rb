@@ -4,6 +4,7 @@ ReferenzmodulDemoapplikation::Application.routes.draw do
       resources :reference_assets
     end
     resources :reference_branches, :except => :show
+    resources :reference_services, :except => :show
   end
 
   mount Kuhsaft::Engine => "/"

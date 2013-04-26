@@ -21,6 +21,7 @@
           = f.hidden_field :position, :class => 'position-field'
       %td
         = image_tag asset.asset.small if asset.type == ReferenceAsset::TYPE_IMAGE
-        = asset.title if asset.type == ReferenceAsset::TYPE_VIDEO
+        - if asset.type == ReferenceAsset::TYPE_VIDEO
+          = asset.href.present? ? link_to(asset.title, asset.href, :target => "_blank") : asset.title
       %td= link_to t('cms.edit'), edit_cms_reference_reference_asset_path(@cms_reference, asset)
       %td= link_to t('cms.destroy'), cms_reference_reference_asset_path(@cms_reference, asset), :method => :delete, :data => { confirm: t('cms.are_you_sure') }

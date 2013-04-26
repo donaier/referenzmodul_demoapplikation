@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424090124) do
+ActiveRecord::Schema.define(:version => 20130425082933) do
 
   create_table "kuhsaft_assets", :force => true do |t|
     t.string   "file"
@@ -77,6 +77,22 @@ ActiveRecord::Schema.define(:version => 20130424090124) do
 
   add_index "kuhsaft_pages", ["ancestry"], :name => "index_kuhsaft_pages_on_ancestry"
   add_index "kuhsaft_pages", ["published"], :name => "index_kuhsaft_pages_on_published"
+
+  create_table "reference_assets", :force => true do |t|
+    t.integer  "reference_id"
+    t.string   "title"
+    t.boolean  "main_asset",   :default => false
+    t.string   "type"
+    t.integer  "position"
+    t.string   "size"
+    t.text     "text"
+    t.string   "asset"
+    t.boolean  "youtube"
+    t.string   "href"
+    t.text     "embed_code"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
 
   create_table "references", :force => true do |t|
     t.string   "title"

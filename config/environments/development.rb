@@ -34,4 +34,7 @@ ReferenzmodulDemoapplikation::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Add Missing Translations
+  config.app_middleware.use(I18n::MissingTranslations)
 end

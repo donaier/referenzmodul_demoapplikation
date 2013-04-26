@@ -1,0 +1,10 @@
+de:
+  cms:
+    reference_branches:
+      index:
+        title: Branchen
+        new: Neue Branche
+      edit:
+        title: Branche bearbeiten
+      new:
+        title: Neue Branche erstellen

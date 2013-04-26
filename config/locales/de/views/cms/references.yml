@@ -13,6 +13,7 @@ de:
       show:
         reference_overview: Übersicht
         reference_assets: Medien
+        reference_branches: Branchen
       assets: Medien
       reference_assets:
         new: Neues Asset

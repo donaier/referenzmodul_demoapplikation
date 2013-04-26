@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425082933) do
+ActiveRecord::Schema.define(:version => 20130426122420) do
 
   create_table "kuhsaft_assets", :force => true do |t|
     t.string   "file"
@@ -93,6 +93,58 @@ ActiveRecord::Schema.define(:version => 20130425082933) do
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end
+
+  create_table "reference_branches", :force => true do |t|
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reference_branches_references", :id => false, :force => true do |t|
+    t.integer "reference_id"
+    t.integer "reference_branch_id"
+  end
+
+  add_index "reference_branches_references", ["reference_branch_id"], :name => "index_reference_branches_references_on_reference_branch_id"
+  add_index "reference_branches_references", ["reference_id"], :name => "index_reference_branches_references_on_reference_id"
+
+  create_table "reference_services", :force => true do |t|
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reference_services_references", :id => false, :force => true do |t|
+    t.integer "reference_id"
+    t.integer "reference_service_id"
+  end
+
+  add_index "reference_services_references", ["reference_id"], :name => "index_reference_services_references_on_reference_id"
+  add_index "reference_services_references", ["reference_service_id"], :name => "index_reference_services_references_on_reference_service_id"
+
+  create_table "reference_topic_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reference_topics", :force => true do |t|
+    t.integer  "reference_topic_category_id"
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "reference_topics_references", :id => false, :force => true do |t|
+    t.integer "reference_id"
+    t.integer "reference_topic_id"
+  end
+
+  add_index "reference_topics_references", ["reference_id"], :name => "index_reference_topics_references_on_reference_id"
+  add_index "reference_topics_references", ["reference_topic_id"], :name => "index_reference_topics_references_on_reference_topic_id"
 
   create_table "references", :force => true do |t|
     t.string   "title"

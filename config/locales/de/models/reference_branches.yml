@@ -1,0 +1,10 @@
+de:
+  activerecord:
+    attributes:
+      reference_branch:
+        name: Name
+        text: Text
+
+    models:
+      reference_branch: Branche
+      reference_branches: Branchen

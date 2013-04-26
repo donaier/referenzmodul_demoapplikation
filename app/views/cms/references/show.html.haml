@@ -6,15 +6,30 @@
     = link_to t('.reference_overview'), '#reference-overview'
   %li
     = link_to "#{t('.reference_assets')} (#{@cms_reference.reference_assets.count})", '#reference-assets'
+  %li
+    = link_to "#{t('.reference_topics')} (#{@cms_reference.reference_topics.count})", '#reference-topics'
+  %li
+    = link_to "#{t('.reference_branches')} (#{@cms_reference.reference_branches.count})", '#reference-branches'
+  %li
+    = link_to "#{t('.reference_services')} (#{@cms_reference.reference_services.count})", '#reference-services'
 
 .tab-content
   #reference-overview.tab-pane.active
     = render 'reference_detail'
+    = link_to t('cms.edit'), edit_cms_reference_path(@cms_reference)
+    \|
+    = link_to t('cms.back'), cms_references_path
 
   #reference-assets.tab-pane
     = render 'reference_assets'
 
+  #reference-topics.tab-pane
+    = render 'reference_topics'
 
-= link_to t('cms.edit'), edit_cms_reference_path(@cms_reference)
-\|
-= link_to t('cms.back'), cms_references_path
+  #reference-branches.tab-pane
+    = render 'reference_branches'
+
+  #reference-services.tab-pane
+    = render 'reference_services'
+
+

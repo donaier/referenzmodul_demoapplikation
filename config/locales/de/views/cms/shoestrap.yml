@@ -13,6 +13,8 @@ de:
 
     navigation:
       items:
+        reference_topics: Themen
+        reference_topic_categories: Themen
         reference_services: Leistungen
         reference_branches: Branchen
         references: Referenzen

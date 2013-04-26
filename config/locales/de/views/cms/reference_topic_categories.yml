@@ -1,0 +1,7 @@
+de:
+  cms:
+    reference_topic_categories:
+      index:
+        title: Themen
+        new: Neue Themenkategorie
+        new_topic: Neues Thema

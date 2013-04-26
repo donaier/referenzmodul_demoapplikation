@@ -1,0 +1,7 @@
+%h1= t('.title')
+
+= simple_form_for([:cms, :cms_reference_topic_category, @cms_reference_topic], :url => cms_reference_topic_category_reference_topics_path(@cms_reference_topic.reference_topic_category), :as => :reference_topic, :html => { :class => 'form-horizontal' } ) do |f|
+
+  = render 'form', :f => f
+
+= link_to t('cms.back'), cms_reference_topic_categories_path

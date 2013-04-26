@@ -1,0 +1,10 @@
+de:
+  activerecord:
+    attributes:
+      reference_topic:
+        reference_topic_category_id: Themenkategorie ID
+        name: Name
+        text: Text
+
+    models:
+      reference_topic: Thema

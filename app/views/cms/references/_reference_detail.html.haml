@@ -58,12 +58,15 @@
 
     %td
       .btn-group{ :'data-toggle' => 'buttons-radio'}
-        %button.btn{ :class => ('btn-success active' if @cms_reference.active?) }
-          %i.icon-ok-circle
-          = t('active')
-        %button.btn{ :class => ('btn-danger active' if @cms_reference.inactive?) }
-          %i.icon-ban-circle
-          = t('inactive')
-        %button.btn{ :class => ('btn-info active' if @cms_reference.archive?) }
-          %i.icon-folder-open
-          = t('archive')
+        = link_to cms_reference_path(@cms_reference, :reference => {:status => 'active'}), :method => :put do
+          %button.btn{ :class => ('btn-success active' if @cms_reference.active?) }
+            %i.icon-ok-circle
+            = t('active')
+        = link_to cms_reference_path(@cms_reference, :reference => {:status => 'inactive'}), :method => :put do
+          %button.btn{ :class => ('btn-danger active' if @cms_reference.inactive?) }
+            %i.icon-ban-circle
+            = t('inactive')
+        = link_to cms_reference_path(@cms_reference, :reference => {:status => 'archive'}), :method => :put do
+          %button.btn{ :class => ('btn-info active' if @cms_reference.archive?) }
+            %i.icon-folder-open
+            = t('archive')

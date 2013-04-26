@@ -26,6 +26,18 @@ class Reference < ActiveRecord::Base
     assign_showcase_position
   end
 
+  def active?
+    self.status == 'active'
+  end
+
+  def inactive?
+    self.status == 'inactive'
+  end
+
+  def archive?
+    self.status == 'archive'
+  end
+
   private
 
   def assign_position

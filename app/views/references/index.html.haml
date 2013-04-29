@@ -1,2 +1,2 @@
-- @references.each do |reference|
-  = link_to reference.title, reference_path(reference)
+- @references.each_with_index do |reference, index|
+  = render 'index_reference', :reference => reference, :index => index

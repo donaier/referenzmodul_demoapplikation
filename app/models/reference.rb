@@ -45,7 +45,19 @@ class Reference < ActiveRecord::Base
   end
 
   def main_asset
-    self.reference_assets.where(:main_asset => true).first
+    if self.reference_assets.where(:main_asset => true).count > 0
+      self.reference_assets.where(:main_asset => true).first
+    else
+      self.reference_assets.first
+    end
+  end
+
+  def tags
+    tags = []
+    tags << self.reference_topics.collect{ |topic| topic.name}
+    tags << self.reference_services.collect{ |service| service.name}
+    tags << self.reference_branches.collect{ |branch| branch.name}
+    tags.flatten.join(", ")
   end
 
   private

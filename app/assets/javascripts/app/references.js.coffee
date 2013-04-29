@@ -1,4 +1,5 @@
 $ ->
+
   $(".hover-circle").mouseenter ->
     $(this).parent().siblings('.infobox').fadeIn('fast')
 

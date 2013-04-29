@@ -11,6 +11,9 @@
     = javascript_include_tag 'http://use.typekit.com/exu5gut.js'
     = csrf_meta_tags
 
+    :javascript
+      try{Typekit.load();}catch(e){}
+
   %body
     .container
       .navbar

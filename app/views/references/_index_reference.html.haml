@@ -2,7 +2,8 @@
   .main-asset
     - if reference.main_asset.type == ReferenceAsset::TYPE_VIDEO
       .reference-video
-        / todo - video anzeigen
+        - if reference.main_asset.youtube
+          %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{reference.main_asset.href.split('=').last}" }
     - if reference.main_asset.type == ReferenceAsset::TYPE_IMAGE
       .reference-image
         = link_to reference_path(reference) do

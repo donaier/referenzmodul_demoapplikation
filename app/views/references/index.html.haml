@@ -1,9 +1,11 @@
-%h1 WE'RE DESIGNING FOR PEOPLE
+.reference-header
+  %h1 WE'RE DESIGNING FOR PEOPLE
 
-.reference-filter
-  FILTER
+  .reference-filter
+    FILTER
 
-%h2.reference-count= "#{@references.count} REFERENZEN"
+  %h2.reference-count= "#{@references.count} REFERENZEN"
 
-- @references.each_with_index do |reference, index|
-  = render 'index_reference', :reference => reference, :index => index
+#reference-grid
+  - @references.each_with_index do |reference, index|
+    = render 'index_reference', :reference => reference, :index => index

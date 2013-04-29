@@ -6,6 +6,7 @@
     = link_to new_cms_reference_reference_asset_path(@cms_reference, :type => ReferenceAsset::TYPE_VIDEO), :class => 'btn btn-primary' do
       %i.icon-plus-sign.icon-white
       #{ t('.new_video') }
+
 %table.table.table-bordered.sortable-table
   %tr
     %th
@@ -13,7 +14,7 @@
     %th
     %th
   - @cms_reference.reference_assets.each do |asset|
-    %tr.sortable-row
+    %tr.sortable-row{ :class => asset.main_asset ? 'info' : '' }
       %td
         .handle
           %i.icon-resize-vertical

@@ -21,6 +21,7 @@ class Reference < ActiveRecord::Base
   default_scope order('position')
 
   scope :showcase, where(:showcase => true).order('showcase_position ASC')
+  scope :active, where(:status => 'active')
 
   after_initialize do
     assign_position
@@ -41,6 +42,10 @@ class Reference < ActiveRecord::Base
 
   def archive?
     self.status == 'archive'
+  end
+
+  def main_asset
+    self.reference_assets.where(:main_asset => true).first
   end
 
   private

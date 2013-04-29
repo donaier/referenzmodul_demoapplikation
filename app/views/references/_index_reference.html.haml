@@ -11,9 +11,10 @@
     = link_to reference.title, reference_path(reference)
     .hover-circle.pull-right
   .infobox
-    %p.year= reference.year
-    %h3= reference.title
-    %p.summary= reference.short_description
-    .tags
-      = reference.tags
-    = link_to 'Zum Projekt', reference_path(reference)
+    .info-content
+      %p.year= reference.year
+      %h3= reference.title
+      %p.summary= reference.short_description
+      .tags
+        = reference.tags
+      = link_to 'Zum Projekt', reference_path(reference)

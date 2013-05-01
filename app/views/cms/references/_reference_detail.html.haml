@@ -59,7 +59,6 @@
     %td
       .btn-group{ :'data-toggle' => 'buttons-radio'}
         = link_to cms_reference_path(@cms_reference, :reference => {:status => 'active'}), :method => :put do
-          // todo: look at that code, this is nasty stuff!
           %button.btn{ :class => ('btn-success active' if @cms_reference.active?),
                        :disabled => ('disabled' unless @cms_reference.main_asset) }
             %i.icon-ok-circle

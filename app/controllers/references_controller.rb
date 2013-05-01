@@ -7,6 +7,6 @@ class ReferencesController < ApplicationController
   end
 
   def show
-    @reference = Reference.find(params[:id])
+    @reference = Reference.active.find(params[:id])
   end
 end

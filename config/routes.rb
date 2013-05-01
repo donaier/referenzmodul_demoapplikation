@@ -10,6 +10,8 @@ ReferenzmodulDemoapplikation::Application.routes.draw do
     resources :reference_services, :except => :show
   end
 
+  resources :references, :only => [:index, :show]
+
   mount Kuhsaft::Engine => "/"
 
   root :to => "welcome#index"

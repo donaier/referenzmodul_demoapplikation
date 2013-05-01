@@ -6,12 +6,12 @@ class ReferenceAssetUploader < CarrierWave::Uploader::Base
 
   storage :file
 
-  version :big do
-    process :resize_to_fill => [400, 200] #todo definieren
+  version :large do
+    process :resize_to_limit => [730, nil]
   end
 
   version :small do
-    process :resize_to_fill => [200, 100] #todo definieren
+    process :resize_to_limit => [330, nil]
   end
 
   def store_dir

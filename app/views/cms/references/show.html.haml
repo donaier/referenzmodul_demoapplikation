@@ -5,13 +5,25 @@
   %li.active
     = link_to t('.reference_overview'), '#reference-overview'
   %li
-    = link_to "#{t('.reference_assets')} (#{@cms_reference.reference_assets.count})", '#reference-assets'
+    = link_to '#reference-assets' do
+      = t('.reference_assets')
+      %span.badge.badge-info
+        = @cms_reference.reference_assets.count
   %li
-    = link_to "#{t('.reference_topics')} (#{@cms_reference.reference_topics.count})", '#reference-topics'
+    = link_to '#reference-topics' do
+      = t('.reference_topics')
+      %span.badge.badge-info
+        = @cms_reference.reference_topics.count
   %li
-    = link_to "#{t('.reference_branches')} (#{@cms_reference.reference_branches.count})", '#reference-branches'
+    = link_to '#reference-branches' do
+      = t('.reference_branches')
+      %span.badge.badge-info
+        = @cms_reference.reference_branches.count
   %li
-    = link_to "#{t('.reference_services')} (#{@cms_reference.reference_services.count})", '#reference-services'
+    = link_to '#reference-services' do
+      = t('.reference_services')
+      %span.badge.badge-info
+        = @cms_reference.reference_services.count
 
 .tab-content
   #reference-overview.tab-pane.active

@@ -1,0 +1,71 @@
+#reference-grid
+  width: 1200px
+
+.reference-header
+  margin: 0 20px
+
+.reference-count
+  padding: 20px 0
+
+.reference-tile
+  position: relative
+  height: auto
+  margin: 20px
+
+  &.small
+    width: 360px
+  &.large
+    width: 760px
+
+  &.bg-0
+    background-color: $grey-0
+  &.bg-1
+    background-color: $grey-1
+  &.bg-2
+    background-color: $grey-2
+
+.reference-image
+  width: 100%
+  padding-top: 35px
+
+  img
+    display: block
+    margin: auto
+
+.reference-actions
+  padding: 15px
+  a
+    color: black
+    font-weight: 900
+    text-decoration: underline
+
+  .hover-circle
+    +circle(top)
+
+.infobox
+  position: absolute
+  height: 100%
+  width: 370px
+  top: 0px
+  right: 0px
+  display: none
+
+  background-color: $red-light
+  border-left: 1px solid white
+  color: white
+
+  .info-content
+    padding: 50px
+
+    .tags
+      padding: 10px 0 30px
+      text-transform: uppercase
+      font-weight: 900
+
+    a
+      color: white
+      font-weight: 900
+      text-decoration: underline
+
+  .circle
+    +circle(bottom)

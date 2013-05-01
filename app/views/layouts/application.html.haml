@@ -8,10 +8,18 @@
 
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    = javascript_include_tag 'http://use.typekit.com/exu5gut.js'
     = csrf_meta_tags
+
+    :javascript
+      try{Typekit.load();}catch(e){}
 
   %body
     .container
+      .navbar
+        .navbar-inner
+          = link_to 'Referenzmodul', root_path, :class => 'brand'
+          = render_navigation
       .row-fluid
         .span-12
           = yield

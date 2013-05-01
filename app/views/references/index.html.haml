@@ -19,13 +19,15 @@
             %h4= t('filter.topics')
             %ul.filter-list
               - ReferenceTopic.all.each do |topic|
-                %li= topic.name
+                = link_to '#', :data => { :filter => topic.name.gsub(' ', '-') } do
+                  %li= topic.name
           .filter-spacer
           .service-filter.filter-box
             %h4= t('filter.services')
             %ul.filter-list
               - ReferenceService.all.each do |ref_service|
-                %li= ref_service.name
+                = link_to '#', :data => { :filter => ref_service.name.gsub(' ', '-') } do
+                  %li= ref_service.name
 
   %h2#reference-count= "#{@references.count} REFERENZEN"
 

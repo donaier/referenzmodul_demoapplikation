@@ -40,11 +40,7 @@
     text-decoration: underline
 
   .hover-circle
-    width: 35px
-    height: 20px
-    background-image:  image-url('icons/circle_black.png')
-    background-repeat: no-repeat
-    background-position: center
+    +circle(top)
 
 .infobox
   position: absolute
@@ -66,7 +62,10 @@
       text-transform: uppercase
       font-weight: 900
 
-  a
-    color: white
-    font-weight: 900
-    text-decoration: underline
+    a
+      color: white
+      font-weight: 900
+      text-decoration: underline
+
+  .circle
+    +circle(bottom)

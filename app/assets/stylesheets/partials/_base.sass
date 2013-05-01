@@ -4,6 +4,17 @@ $grey-2: #EEE
 $red-light: #FF5050
 $red: #AA003C
 
+@mixin circle($bg-pos)
+  position: absolute
+  bottom: 16px
+  right: 16px
+  width: 16px
+  height: 16px
+  background-image:  image-url('icons/kringel.png')
+  background-image:  none, image-url('icons/kringel.svg')
+  background-repeat: no-repeat
+  background-position: $bg-pos
+
 body
   font-family: myriad-pro-1, myriad-pro-2, sans-serif
   font-weight: normal

@@ -45,6 +45,11 @@ class Cms::ReferenceAssetsController < Kuhsaft::Cms::AdminController
     @cms_reference_asset = ReferenceAsset.find(params[:id])
     @cms_reference_asset.destroy
 
+    # deactivate a reference if all assets are deleted
+    if @cms_reference_asset.reference.main_asset == nil && @cms_reference_asset.reference.status == 'active'
+      @cms_reference_asset.reference.update_attribute(:status, 'inactive')
+    end
+
     respond_to do |format|
       format.html { redirect_to cms_reference_path(@cms_reference_asset.reference) }
       format.json { head :no_content }

@@ -4,7 +4,7 @@
   .reference-filter
     .accordion#filter-accordion
       .accordion-heading
-        = link_to 'Filter', '#collapseFilter', :class => 'accordion-toggle filter-toggle', :data => { :toggle => 'collapse', :parent => '#filter-accordion' }
+        = link_to 'Filter', '#collapseFilter', :class => 'accordion-toggle filter-toggle collapsed', :data => { :toggle => 'collapse', :parent => '#filter-accordion' }
         = link_to t('filter.show_all'), '#', :id => 'reset-filter', :class => 'pull-right hidden', :data => { :filter => '*' }
       #collapseFilter.accordion-body.collapse
         .accordion-inner

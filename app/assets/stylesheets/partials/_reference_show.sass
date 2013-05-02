@@ -1,20 +1,59 @@
 #reference-show
-  margin: 0px 20px
 
   p
     width: 800px
     padding-top: 30px
 
 
-  a.more-about
+  .more-about
+    text-transform: uppercase
+    text-decoration: underline
+    font-weight: bold
+    cursor: pointer
+
+  .reference-content
+    margin: 0px 20px
 
 
   #asset-grid
-    margin: 70px 0
-    height: 300px
-    background-color: $red-light
+    margin: 70px 0 30px
+
+    #more-images
+
+    .asset-tile
+      position: relative
+      height: auto
+      margin: 20px
+
+      &.small
+        width: 360px
+      &.large
+        width: 760px
+
+      &.bg-0
+        background-color: $grey-0
+      &.bg-1
+        background-color: $grey-1
+      &.bg-2
+        background-color: $grey-2
+
+      .reference-image
+        padding: 35px 0px
+
+  #more-images
+    height: 50px
+    width: 360px
+    margin-left: 420px
+    background-color: $red
+    color: white
+    text-decoration: none
+    text-shadow: none
+    font-family: myriad-pro-1, myriad-pro-2, sans-serif
+    font-size: 18px
+    font-weight: bold
 
   .more-references
+    margin: 140px 20px 200px
 
     .reference-teasers
       margin-top: 30px

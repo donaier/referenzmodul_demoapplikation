@@ -1,23 +1,47 @@
 #reference-show
-  %h1= @reference.title
+  .reference-content
+    %h1= @reference.title
 
-  .short-description
-    %p= @reference.short_description
+    .short-description
+      %p= @reference.short_description
 
-  #description.collapse
-    %p= @reference.description
+    #description.collapse
+      %p= @reference.description
 
-  %a.more-about{ :data => { :toggle => 'collapse', :target => '#description' } }
-    = "#{t('more_about')} #{@reference.title}"
+    .more-about{ :data => { :toggle => 'collapse', :target => '#description' } }
+      = "#{t('more_about')} #{@reference.title}"
 
   #asset-grid
+    - @reference.reference_assets.first(6).each_with_index do |asset, index|
+      .asset-tile{ :class => "#{asset.size} bg-#{index % 3}" }
+        .asset
+          - if asset.type == ReferenceAsset::TYPE_VIDEO
+            .reference-video
+              - if asset.youtube
+                %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
+          - if asset.type == ReferenceAsset::TYPE_IMAGE
+            .reference-image
+              = image_tag asset.asset.send(asset.size.to_s)
 
+    - if @reference.reference_assets.count > 6
+      - @reference.reference_assets.last(@reference.reference_assets.count - 6 ).each_with_index do |asset, index|
+        .asset-tile{ :class => "#{asset.size} bg-#{index % 3} additional" }
+          .asset
+            - if asset.type == ReferenceAsset::TYPE_VIDEO
+              .reference-video
+                - if asset.youtube
+                  %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
+            - if asset.type == ReferenceAsset::TYPE_IMAGE
+              .reference-image
+                = image_tag asset.asset.send(asset.size.to_s)
+  %button#more-images.btn.btn-link
+    = t('show_more_images')
 
 
   .more-references
     %h2= t('more_references')
 
-    .reference-teasers
+    .reference-teasers.clearfix
       - Reference.random_three_excluding(@reference).each_with_index do |reference, index|
         .reference-tile{ :class => "small bg-#{index % 3}" }
           .main-asset
@@ -28,7 +52,7 @@
             - if reference.main_asset.type == ReferenceAsset::TYPE_IMAGE
               .reference-image
                 = link_to reference_path(reference) do
-                  = image_tag reference.main_asset.asset.send(reference.main_asset.size.to_s)
+                  = image_tag reference.main_asset.asset.small
           .reference-actions
             = link_to reference.title, reference_path(reference)
             .hover-circle.pull-right

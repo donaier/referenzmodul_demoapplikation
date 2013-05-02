@@ -4,7 +4,7 @@
       - if asset.type == ReferenceAsset::TYPE_VIDEO
         .reference-video
           - if asset.youtube
-            %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
+            %iframe{ :width => '760px', :height => '600px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
       - if asset.type == ReferenceAsset::TYPE_IMAGE
         .reference-image
           = image_tag asset.asset.send(asset.size.to_s)
@@ -16,7 +16,7 @@
         - if asset.type == ReferenceAsset::TYPE_VIDEO
           .reference-video
             - if asset.youtube
-              %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
+              %iframe{ :width => '760px', :height => '600px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
         - if asset.type == ReferenceAsset::TYPE_IMAGE
           .reference-image
             = image_tag asset.asset.send(asset.size.to_s)

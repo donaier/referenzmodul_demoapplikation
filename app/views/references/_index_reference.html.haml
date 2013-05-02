@@ -3,7 +3,7 @@
     - if reference.main_asset.type == ReferenceAsset::TYPE_VIDEO
       .reference-video
         - if reference.main_asset.youtube
-          %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{reference.main_asset.href.split('=').last}" }
+          %iframe{ :width => '760px', :height => '600px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{reference.main_asset.href.split('=').last}" }
     - if reference.main_asset.type == ReferenceAsset::TYPE_IMAGE
       .reference-image
         = link_to reference_path(reference) do
@@ -11,12 +11,4 @@
   .reference-actions
     = link_to reference.title, reference_path(reference)
     .hover-circle.pull-right
-  .infobox
-    .info-content
-      %p.year= reference.year
-      %h3= reference.title
-      %p.summary= reference.short_description
-      .tags
-        = reference.tags.join(", ")
-      = link_to 'Zum Projekt', reference_path(reference)
-    .circle
+  = render 'infobox', :reference => reference

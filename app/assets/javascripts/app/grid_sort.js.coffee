@@ -11,9 +11,8 @@ $ ->
       filter: '*'
     $(this).addClass('hidden')
 
-
-  $("#reference-grid").imagesLoaded ->
-    $("#reference-grid").isotope
+  $("#reference-grid, #reference-showcase").imagesLoaded ->
+    $(this).isotope
       itemSelector: '.reference-tile',
       layoutMode: 'fitRows'
 

@@ -1,36 +1,12 @@
-.reference-header
-  %h1 WE'RE DESIGNING FOR PEOPLE
+#reference-index
+  .reference-header
+    %h1 WE'RE DESIGNING FOR PEOPLE
 
-  .reference-filter
-    .accordion#filter-accordion
-      .accordion-heading
-        = link_to 'Filter', '#collapseFilter', :class => 'accordion-toggle filter-toggle collapsed', :data => { :toggle => 'collapse', :parent => '#filter-accordion' }
-        = link_to t('filter.show_all'), '#', :id => 'reset-filter', :class => 'pull-right hidden', :data => { :filter => '*' }
-      #collapseFilter.accordion-body.collapse
-        .accordion-inner
-          .branch-filter.filter-box
-            %h4= t('filter.branches')
-            %ul.filter-list
-              - ReferenceBranch.all.each do |branch|
-                = link_to '#', :data => { :filter => branch.name.gsub(' ', '-') } do
-                  %li= branch.name
-          .filter-spacer
-          .topic-filter.filter-box
-            %h4= t('filter.topics')
-            %ul.filter-list
-              - ReferenceTopic.all.each do |topic|
-                = link_to '#', :data => { :filter => topic.name.gsub(' ', '-') } do
-                  %li= topic.name
-          .filter-spacer
-          .service-filter.filter-box
-            %h4= t('filter.services')
-            %ul.filter-list
-              - ReferenceService.all.each do |ref_service|
-                = link_to '#', :data => { :filter => ref_service.name.gsub(' ', '-') } do
-                  %li= ref_service.name
+    .reference-filter
+      = render 'reference_filter'
 
-  %h2#reference-count= "#{@references.count} REFERENZEN"
+    %h2#reference-count= "#{@references.count} REFERENZEN"
 
-#reference-grid
-  - @references.each_with_index do |reference, index|
-    = render 'index_reference', :reference => reference, :index => index
+  #reference-grid
+    - @references.each_with_index do |reference, index|
+      = render 'index_reference', :reference => reference, :index => index

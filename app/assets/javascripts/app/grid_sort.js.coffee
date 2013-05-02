@@ -1,10 +1,21 @@
 $ ->
 
+  $("#asset-grid").imagesLoaded ->
+    $("#asset-grid").isotope
+      itemSelector: '.asset-tile',
+      layoutMode: 'fitRows',
+      filter: ':not(.additional)'
+
+  $("#more-images").click ->
+    $("#asset-grid").isotope
+      filter: '*'
+    $(this).addClass('hidden')
+
+
   $("#reference-grid").imagesLoaded ->
     $("#reference-grid").isotope
-      itemSelector : '.reference-tile',
-      layoutMode : 'fitRows'
-
+      itemSelector: '.reference-tile',
+      layoutMode: 'fitRows'
 
   $("#filter-accordion .accordion-inner a").click ->
     $(this).toggleClass('selected')

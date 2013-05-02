@@ -1,0 +1,43 @@
+#reference-show
+  %h1= @reference.title
+
+  .short-description
+    %p= @reference.short_description
+
+  #description.collapse
+    %p= @reference.description
+
+  %a.more-about{ :data => { :toggle => 'collapse', :target => '#description' } }
+    = "#{t('more_about')} #{@reference.title}"
+
+  #asset-grid
+
+
+
+  .more-references
+    %h2= t('more_references')
+
+    .reference-teasers
+      - Reference.random_three_excluding(@reference).each_with_index do |reference, index|
+        .reference-tile{ :class => "small bg-#{index % 3}" }
+          .main-asset
+            - if reference.main_asset.type == ReferenceAsset::TYPE_VIDEO
+              .reference-video
+                - if reference.main_asset.youtube
+                  %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{reference.main_asset.href.split('=').last}" }
+            - if reference.main_asset.type == ReferenceAsset::TYPE_IMAGE
+              .reference-image
+                = link_to reference_path(reference) do
+                  = image_tag reference.main_asset.asset.send(reference.main_asset.size.to_s)
+          .reference-actions
+            = link_to reference.title, reference_path(reference)
+            .hover-circle.pull-right
+          .infobox
+            .info-content
+              %p.year= reference.year
+              %h3= reference.title
+              %p.summary= reference.short_description
+              .tags
+                = reference.tags.join(", ")
+              = link_to t('goto_project'), reference_path(reference)
+            .circle

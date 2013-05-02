@@ -5,3 +5,6 @@ $ ->
 
   $(".infobox").mouseleave ->
     $(this).fadeOut(400)
+
+  $(".more-about").click ->
+    $(this).addClass('hidden')

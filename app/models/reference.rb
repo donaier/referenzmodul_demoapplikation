@@ -60,6 +60,19 @@ class Reference < ActiveRecord::Base
     tags.flatten
   end
 
+  def self.random_three_excluding(excluded_ref)
+    rand_refs = []
+    if (c = active.count) >= 4
+      while rand_refs.count < 3  do
+        ref = active.find(:first, :offset =>rand(c))
+        unless rand_refs.include?(ref) || ref == excluded_ref
+          rand_refs << ref
+        end
+      end
+    end
+    rand_refs
+  end
+
   private
 
   def assign_position

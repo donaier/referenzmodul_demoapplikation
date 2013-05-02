@@ -9,10 +9,6 @@ class Cms::ReferenceAssetsController < Kuhsaft::Cms::AdminController
     end
   end
 
-  def edit
-    @cms_reference_asset = ReferenceAsset.find(params[:id])
-  end
-
   def create
     @cms_reference_asset = ReferenceAsset.new(params[:reference_asset])
 
@@ -25,6 +21,10 @@ class Cms::ReferenceAssetsController < Kuhsaft::Cms::AdminController
         format.json { render json: @cms_reference_asset.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @cms_reference_asset = ReferenceAsset.find(params[:id])
   end
 
   def update

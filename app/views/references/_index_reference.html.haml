@@ -1,4 +1,4 @@
-.reference-tile{ :class => "#{reference.main_asset.size} bg-#{index % 3}" }
+.reference-tile{ :class => "#{reference.main_asset.size} bg-#{index % 3} #{reference.tags.collect{|tag| tag.gsub(" ","-")}.join(" ") }" }
   .main-asset
     - if reference.main_asset.type == ReferenceAsset::TYPE_VIDEO
       .reference-video
@@ -17,6 +17,6 @@
       %h3= reference.title
       %p.summary= reference.short_description
       .tags
-        = reference.tags
+        = reference.tags.join(", ")
       = link_to 'Zum Projekt', reference_path(reference)
     .circle

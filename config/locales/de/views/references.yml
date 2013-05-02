@@ -1,0 +1,6 @@
+de:
+  filter:
+    branches: Branchen
+    topics: Themen
+    services: Leistungen
+    show_all: Filter zurücksetzen

@@ -57,7 +57,7 @@ class Reference < ActiveRecord::Base
     tags << self.reference_topics.collect{ |topic| topic.name}
     tags << self.reference_services.collect{ |service| service.name}
     tags << self.reference_branches.collect{ |branch| branch.name}
-    tags.flatten.join(", ")
+    tags.flatten
   end
 
   private

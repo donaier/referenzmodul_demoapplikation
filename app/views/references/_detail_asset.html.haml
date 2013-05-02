@@ -1,0 +1,22 @@
+- @reference.reference_assets.first(6).each_with_index do |asset, index|
+  .asset-tile{ :class => "#{asset.size} bg-#{index % 3}" }
+    .asset
+      - if asset.type == ReferenceAsset::TYPE_VIDEO
+        .reference-video
+          - if asset.youtube
+            %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
+      - if asset.type == ReferenceAsset::TYPE_IMAGE
+        .reference-image
+          = image_tag asset.asset.send(asset.size.to_s)
+
+- if @reference.reference_assets.count > 6
+  - @reference.reference_assets.last(@reference.reference_assets.count - 6 ).each_with_index do |asset, index|
+    .asset-tile{ :class => "#{asset.size} bg-#{index % 3} additional" }
+      .asset
+        - if asset.type == ReferenceAsset::TYPE_VIDEO
+          .reference-video
+            - if asset.youtube
+              %iframe{ :width => '360px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{asset.href.split('=').last}" }
+        - if asset.type == ReferenceAsset::TYPE_IMAGE
+          .reference-image
+            = image_tag asset.asset.send(asset.size.to_s)

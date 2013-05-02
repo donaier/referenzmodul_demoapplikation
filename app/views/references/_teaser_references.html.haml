@@ -12,12 +12,4 @@
     .reference-actions
       = link_to reference.title, reference_path(reference)
       .hover-circle.pull-right
-    .infobox
-      .info-content
-        %p.year= reference.year
-        %h3= reference.title
-        %p.summary= reference.short_description
-        .tags
-          = reference.tags.join(", ")
-        = link_to t('goto_project'), reference_path(reference)
-      .circle
+    = render 'infobox', :reference => reference

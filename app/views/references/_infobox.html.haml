@@ -1,0 +1,11 @@
+.infobox
+  = link_to reference_path(reference) do
+    .info-content
+      %p.year= reference.year
+      %h3= reference.title
+      %p.summary= reference.short_description
+      %p.truncated-summary
+        = truncate(reference.short_description, :length => 70, :separator => ' ')
+      .tags
+        = reference.tags.join(", ")
+    .circle

@@ -28,7 +28,9 @@
           %p.year= reference.year
           %h3= reference.title
           %p.summary= reference.short_description
+          %p.truncated-summary
+            = truncate(reference.short_description, :length => 80, :separator => ' ')
           .tags
             = reference.tags.join(", ")
-          = link_to 'Zum Projekt', reference_path(reference)
         .circle
+

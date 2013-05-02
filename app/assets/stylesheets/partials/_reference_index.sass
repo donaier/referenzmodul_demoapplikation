@@ -17,8 +17,12 @@
 
   &.small
     width: 360px
+    .summary
+      display: none
   &.large
     width: 760px
+    .truncated-summary
+      display: none
 
   &.bg-0
     background-color: $grey-0
@@ -48,7 +52,7 @@
 .infobox
   position: absolute
   height: 100%
-  width: 370px
+  width: 360px
   top: 0px
   right: 0px
   display: none
@@ -58,17 +62,20 @@
   color: white
 
   .info-content
+    height: 100%
     padding: 50px
+    *
+      max-width: 320px
 
     .tags
       padding: 10px 0 30px
       text-transform: uppercase
       font-weight: 900
 
-    a
-      color: white
-      font-weight: 900
-      text-decoration: underline
+  a
+    height: 100%
+    color: white
+    text-decoration: none
 
   .circle
     +circle(bottom)

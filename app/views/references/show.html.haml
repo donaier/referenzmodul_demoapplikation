@@ -18,9 +18,8 @@
     %button#more-images.btn.btn-link
       = t('show_more_images')
 
-
-  .more-references
-    %h2= t('more_references')
-
-    .reference-teasers.clearfix
-      = render 'teaser_references'
+  - if Reference.random_three_excluding(@reference)
+    .more-references
+      %h2= t('more_references')
+      .reference-teasers.clearfix
+        = render 'teaser_references'

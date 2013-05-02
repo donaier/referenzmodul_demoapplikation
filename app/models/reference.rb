@@ -69,8 +69,10 @@ class Reference < ActiveRecord::Base
           rand_refs << ref
         end
       end
+      rand_refs
+    else
+      nil
     end
-    rand_refs
   end
 
   private

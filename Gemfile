@@ -41,6 +41,8 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
+  gem 'launchy'
 end
 
 group :test do

@@ -45,46 +45,6 @@ describe Reference do
     end
   end
 
-  context 'reference image' do
-
-    context '#new' do
-      before do
-        @reference = Fabricate(:reference)
-        visit new_cms_reference_reference_asset_path(@reference, :type => ReferenceAsset::TYPE_IMAGE)
-      end
-
-      it 'saves a valid reference image' do
-        attach_file 'Datei', "#{Rails.root}/spec/support/test_files/test_image.jpg"
-        choose('small')
-        expect {
-          click_on 'Create Reference asset'
-        }.to change{ReferenceAsset.count}.by(1)
-      end
-
-      it 'does not save a invalid reference image' do
-        expect {
-          click_on 'Create Reference asset'
-        }.not_to change{ReferenceAsset.count}
-      end
-
-      it 'displays an error message if the image format is invalid' do
-        attach_file 'Datei', "#{Rails.root}/spec/support/test_files/test_document.pdf"
-        choose('small')
-        click_on 'Create Reference asset'
-        page.should have_selector('.reference_asset_asset.error')
-      end
-    end
-
-    context '#index' do
-      it 'displays a preview of the reference image' do
-        @reference = Fabricate(:reference)
-        @asset = Fabricate(:'ReferenceAssets::ReferenceImage', :reference => @reference)
-        visit cms_reference_path(@reference)
-        find('img')[:alt].should eq('Small_test_image')
-      end
-    end
-  end
-
   context '#edit' do
     before do
       @reference = Fabricate(:reference)
@@ -151,7 +111,7 @@ describe Reference do
 
     it 'is not possible to activate a reference if it has no assets' do
       visit cms_reference_path(@inactive_reference)
-      find('a.deactivator').should
+      find('a.activator button')[:disabled].should eq('disabled')
     end
   end
 
@@ -169,6 +129,46 @@ describe Reference do
     it 'deletes all associated assets' do
       @reference.destroy
       @reference.reference_assets.should be_empty
+    end
+  end
+
+  context 'reference image' do
+
+    context '#new' do
+      before do
+        @reference = Fabricate(:reference)
+        visit new_cms_reference_reference_asset_path(@reference, :type => ReferenceAsset::TYPE_IMAGE)
+      end
+
+      it 'saves a valid reference image' do
+        attach_file 'Datei', "#{Rails.root}/spec/support/test_files/test_image.jpg"
+        choose('small')
+        expect {
+          click_on 'Create Reference asset'
+        }.to change{ReferenceAsset.count}.by(1)
+      end
+
+      it 'does not save a invalid reference image' do
+        expect {
+          click_on 'Create Reference asset'
+        }.not_to change{ReferenceAsset.count}
+      end
+
+      it 'displays an error message if the image format is invalid' do
+        attach_file 'Datei', "#{Rails.root}/spec/support/test_files/test_document.pdf"
+        choose('small')
+        click_on 'Create Reference asset'
+        page.should have_selector('.reference_asset_asset.error')
+      end
+    end
+
+    context '#index' do
+      it 'displays a preview of the reference image' do
+        @reference = Fabricate(:reference)
+        @asset = Fabricate(:'ReferenceAssets::ReferenceImage', :reference => @reference)
+        visit cms_reference_path(@reference)
+        find('img')[:alt].should eq('Small_test_image')
+      end
     end
   end
 end

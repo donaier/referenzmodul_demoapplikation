@@ -1,0 +1,26 @@
+#reference-show
+  .reference-content
+    %h1= @reference.title
+
+    .short-description
+      %p= @reference.short_description
+
+    - if @reference.description.present?
+      #description.collapse
+        %p= @reference.description
+
+      .more-about{ :data => { :toggle => 'collapse', :target => '#description' } }
+        = "#{t('more_about')} #{@reference.title}"
+
+  #asset-grid
+    = render 'detail_asset'
+
+  - if @reference.reference_assets.count > 6
+    %button#more-images.btn.btn-link
+      = t('show_more_images')
+
+  - if Reference.random_three_excluding(@reference)
+    .more-references
+      %h2= t('more_references')
+      .reference-teasers.clearfix
+        = render 'teaser_references'

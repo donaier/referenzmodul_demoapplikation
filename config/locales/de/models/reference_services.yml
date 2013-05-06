@@ -1,0 +1,10 @@
+de:
+  activerecord:
+    attributes:
+      reference_service:
+        name: Name
+        text: Text
+
+    models:
+      reference_service: Leistung
+      reference_services: Leistungen

@@ -1,0 +1,12 @@
+#reference-index
+  .reference-header
+    %h1 WE'RE DESIGNING FOR PEOPLE
+
+    .reference-filter
+      = render 'reference_filter'
+
+    %h2#reference-count= "#{@references.count} REFERENZEN"
+
+  #reference-grid
+    - @references.each_with_index do |reference, index|
+      = render 'index_reference', :reference => reference, :index => index

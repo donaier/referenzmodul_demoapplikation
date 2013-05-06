@@ -8,16 +8,21 @@
 
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    = javascript_include_tag 'http://use.typekit.com/exu5gut.js'
     = csrf_meta_tags
 
-  %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to 'referenzmodul_demoapplikation', '#', :class => 'brand'
-          %ul.nav
+    :javascript
+      try{Typekit.load();}catch(e){}
 
+  %body
     .container
+      .navbar
+        .navbar-inner
+          = link_to 'Referenzmodul', root_path, :class => 'brand'
+          = render_navigation
+          %ul.nav.pull-right
+            %li
+              = link_to 'Backend - Referenzverwaltung', kuhsaft.cms_root_path
       .row-fluid
         .span-12
           = yield

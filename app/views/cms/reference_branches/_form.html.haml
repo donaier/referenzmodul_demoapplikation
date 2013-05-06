@@ -1,0 +1,9 @@
+= simple_form_for([:cms, @cms_reference_branch], :html => { :class => 'form-horizontal' } ) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :text
+
+  .form-actions
+    = f.button :submit

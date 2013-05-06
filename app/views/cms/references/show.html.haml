@@ -1,0 +1,47 @@
+%h1= @cms_reference.title
+%hr
+
+%ul#reference-tabs.nav.nav-tabs
+  %li.active
+    = link_to t('.reference_overview'), '#reference-overview'
+  %li
+    = link_to '#reference-assets' do
+      = t('.reference_assets')
+      %span.badge.badge-info
+        = @cms_reference.reference_assets.count
+  %li
+    = link_to '#reference-topics' do
+      = t('.reference_topics')
+      %span.badge.badge-info
+        = @cms_reference.reference_topics.count
+  %li
+    = link_to '#reference-branches' do
+      = t('.reference_branches')
+      %span.badge.badge-info
+        = @cms_reference.reference_branches.count
+  %li
+    = link_to '#reference-services' do
+      = t('.reference_services')
+      %span.badge.badge-info
+        = @cms_reference.reference_services.count
+
+.tab-content
+  #reference-overview.tab-pane.active
+    = render 'reference_detail'
+    = link_to t('cms.edit'), edit_cms_reference_path(@cms_reference)
+    \|
+    = link_to t('cms.back'), cms_references_path
+
+  #reference-assets.tab-pane
+    = render 'reference_assets'
+
+  #reference-topics.tab-pane
+    = render 'reference_topics'
+
+  #reference-branches.tab-pane
+    = render 'reference_branches'
+
+  #reference-services.tab-pane
+    = render 'reference_services'
+
+

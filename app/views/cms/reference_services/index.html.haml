@@ -1,0 +1,23 @@
+%h1= t('.title')
+
+.row-fluid.actions
+  .pull-right.padded
+    = link_to new_cms_reference_service_path, :class => 'btn btn-primary' do
+      %i.icon-plus-sign.icon-white
+      #{ t('.new') }
+
+%table.table.table-bordered.table-striped
+  %tr
+    %th= ReferenceService.human_attribute_name :name
+    %th= ReferenceService.human_attribute_name :text
+    %th
+    %th
+
+  - @cms_reference_services.each do |cms_reference_service|
+    %tr
+      %td= cms_reference_service.name
+      %td= cms_reference_service.text
+      %td= link_to t('cms.edit'), edit_cms_reference_service_path(cms_reference_service)
+      %td= link_to t('cms.destroy'), cms_reference_service_path(cms_reference_service), method: :delete, data: { confirm: t('cms.are_you_sure') }
+
+%br

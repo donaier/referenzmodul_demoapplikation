@@ -1,0 +1,73 @@
+%table.table.table-bordered
+  %tr
+    %th
+      #{Reference.human_attribute_name :page_url}:
+    %td
+      = @cms_reference.page_url
+  %tr
+    %th
+      #{Reference.human_attribute_name :customer}:
+    %td
+      = @cms_reference.customer
+  %tr
+    %th
+      #{Reference.human_attribute_name :year}:
+    %td
+      = @cms_reference.year
+  %tr
+    %th
+      #{Reference.human_attribute_name :short_description}:
+    %td
+      = @cms_reference.short_description
+  %tr
+    %th
+      #{Reference.human_attribute_name :description}:
+    %td
+      = @cms_reference.description
+  %tr
+    %th
+      #{Reference.human_attribute_name :customer_url}:
+    %td
+      = @cms_reference.customer_url
+  %tr
+    %th
+      #{Reference.human_attribute_name :testimonial_company}:
+    %td
+      = @cms_reference.testimonial_company
+  %tr
+    %th
+      #{Reference.human_attribute_name :testimonial_person}:
+    %td
+      = @cms_reference.testimonial_person
+  %tr
+    %th
+      #{Reference.human_attribute_name :testimonial_quote}:
+    %td
+      = @cms_reference.testimonial_quote
+  %tr
+    %th
+      #{Reference.human_attribute_name :showcase}:
+    %td
+      - if @cms_reference.showcase
+        %i.icon-ok
+      - else
+        %i.icon-remove
+  %tr
+    %th
+      #{Reference.human_attribute_name :status}:
+
+    %td
+      .btn-group{ :'data-toggle' => 'buttons-radio'}
+        = link_to cms_reference_path(@cms_reference, :reference => {:status => 'active'}), :method => :put, :class => 'activator' do
+          %button.btn{ :class => ('btn-success active' if @cms_reference.active?),
+                       :disabled => ('disabled' unless @cms_reference.main_asset) }
+            %i.icon-ok-circle
+            = t('active')
+        = link_to cms_reference_path(@cms_reference, :reference => {:status => 'inactive'}), :method => :put, :class => 'deactivator' do
+          %button.btn{ :class => ('btn-danger active' if @cms_reference.inactive?) }
+            %i.icon-ban-circle
+            = t('inactive')
+        = link_to cms_reference_path(@cms_reference, :reference => {:status => 'archive'}), :method => :put, :class => 'archivator' do
+          %button.btn{ :class => ('btn-info active' if @cms_reference.archive?) }
+            %i.icon-folder-open
+            = t('archive')

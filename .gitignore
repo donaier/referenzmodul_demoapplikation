@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+public/uploads
+vendor/bundle
+public/assets
+
+config/locales/missing_translations.yml

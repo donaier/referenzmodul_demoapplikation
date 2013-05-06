@@ -1,0 +1,15 @@
+- Reference.random_three_excluding(@reference).each_with_index do |reference, index|
+  .reference-tile{ :class => "small bg-#{index % 3}" }
+    .main-asset
+      - if reference.main_asset.type == ReferenceAsset::TYPE_VIDEO
+        .reference-video
+          - if reference.main_asset.youtube
+            %iframe{ :width => '360px', :height => '270px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{reference.main_asset.href.split('=').last}" }
+      - if reference.main_asset.type == ReferenceAsset::TYPE_IMAGE
+        .reference-image
+          = link_to reference_path(reference) do
+            = image_tag reference.main_asset.asset.small
+    .reference-actions
+      = link_to reference.title, reference_path(reference)
+      .hover-circle.pull-right
+    = render 'infobox', :reference => reference

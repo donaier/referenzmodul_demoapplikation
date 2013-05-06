@@ -6,7 +6,7 @@
   = f.input :href
   = f.input :youtube, :input_html => { :checked => true }, :disabled => true
   = f.input :embed_code, :disabled => true
-  = f.input :size, :collection => ReferenceAsset::ASSET_SIZES, :as => :radio_buttons, :disabled => true, :checked => 'large'
+  = f.input :size, :collection => ReferenceAsset::ASSET_SIZES, :as => :radio_buttons, :checked => 'large'
   = f.input :position
   = f.input :text
   = f.hidden_field :type

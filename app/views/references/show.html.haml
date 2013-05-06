@@ -5,11 +5,12 @@
     .short-description
       %p= @reference.short_description
 
-    #description.collapse
-      %p= @reference.description
+    - if @reference.description.present?
+      #description.collapse
+        %p= @reference.description
 
-    .more-about{ :data => { :toggle => 'collapse', :target => '#description' } }
-      = "#{t('more_about')} #{@reference.title}"
+      .more-about{ :data => { :toggle => 'collapse', :target => '#description' } }
+        = "#{t('more_about')} #{@reference.title}"
 
   #asset-grid
     = render 'detail_asset'

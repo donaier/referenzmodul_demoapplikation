@@ -1,0 +1,8 @@
+de:
+  activerecord:
+    attributes:
+      reference_topic_category:
+        name: Name
+
+    models:
+      reference_topic_category: Themenkategorie

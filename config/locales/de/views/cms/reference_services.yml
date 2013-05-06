@@ -1,0 +1,10 @@
+de:
+  cms:
+    reference_services:
+      index:
+        title: Leistungen
+        new: Neue Leistung
+      edit:
+        title: Leistung bearbeiten
+      new:
+        title: Neue Leistung erstellen

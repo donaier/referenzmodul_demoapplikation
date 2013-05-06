@@ -1,0 +1,11 @@
+de:
+  cms:
+    references:
+      reference_assets:
+        new_image: Neues Bild
+        new_video: Neues Video
+    reference_assets:
+      edit:
+        title: Asset Bearbeiten
+      new:
+        title: Neues Asset

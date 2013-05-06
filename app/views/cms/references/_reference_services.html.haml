@@ -1,0 +1,21 @@
+%table.table.table-bordered.sortable-table
+  %tr
+    %th= ReferenceService.human_attribute_name :name
+    %th= ReferenceService.human_attribute_name :text
+
+  - @cms_reference.reference_services.each do |ref_service|
+    %tr
+      %td= ref_service.name
+      %td= ref_service.text
+
+%br
+%h3= t('.select_services')
+%hr
+
+= simple_form_for([:cms, @cms_reference], :html => { :class => 'form-horizontal' } ) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :reference_services, :as => :check_boxes, :label => t('activerecord.models.reference_services')
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,23 @@
+%h1= t('.title')
+
+%table.table.table-bordered
+  - @cms_reference_topic_categories.each do |cms_reference_topic_category|
+    %tr.info
+      %td
+        = cms_reference_topic_category.name
+        = link_to new_cms_reference_topic_category_reference_topic_path(cms_reference_topic_category), :class => 'btn btn-primary pull-right' do
+          %i.icon-plus-sign.icon-white
+          #{ t('.new_topic') }
+      %td= link_to t('cms.destroy'), cms_reference_topic_category_path(cms_reference_topic_category), method: :delete, data: { confirm: t('cms.are_you_sure') }
+    - cms_reference_topic_category.reference_topics.each do |topic|
+      %tr
+        %td
+          = topic.name
+          = link_to t('cms.edit'), edit_cms_reference_topic_category_reference_topic_path(topic.reference_topic_category, topic), :class => 'pull-right'
+        %td= link_to t('cms.destroy'), cms_reference_topic_category_reference_topic_path(topic.reference_topic_category, topic), method: :delete, data: { confirm: t('cms.are_you_sure') }
+
+%br
+
+%h3= t('.new')
+%hr
+= render 'form'

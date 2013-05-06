@@ -1,0 +1,14 @@
+.reference-tile{ :class => "#{reference.main_asset.size} bg-#{index % 3} #{reference.tags.collect{|tag| tag.gsub(" ","-")}.join(" ") }" }
+  .main-asset
+    - if reference.main_asset.type == ReferenceAsset::TYPE_VIDEO
+      .reference-video
+        - if reference.main_asset.youtube
+          %iframe{ :width => '760px', :height => '600px', :frameBorder => '0', :src => "http://www.youtube.com/embed/#{reference.main_asset.href.split('=').last}" }
+    - if reference.main_asset.type == ReferenceAsset::TYPE_IMAGE
+      .reference-image
+        = link_to reference_path(reference) do
+          = image_tag reference.main_asset.asset.send(reference.main_asset.size.to_s)
+  .reference-actions
+    = link_to reference.title, reference_path(reference)
+    .hover-circle.pull-right
+  = render 'infobox', :reference => reference

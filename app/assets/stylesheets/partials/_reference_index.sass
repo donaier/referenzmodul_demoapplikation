@@ -1,0 +1,81 @@
+#reference-index
+  padding-bottom: 200px
+
+#reference-grid
+  width: 1200px
+
+#reference-count
+  padding: 20px 0
+
+.reference-header
+  margin: 0 20px
+
+.reference-tile
+  position: relative
+  height: auto
+  margin: 20px
+
+  &.small
+    width: 360px
+    .summary
+      display: none
+  &.large
+    width: 760px
+    .truncated-summary
+      display: none
+
+  &.bg-0
+    background-color: $grey-0
+  &.bg-1
+    background-color: $grey-1
+  &.bg-2
+    background-color: $grey-2
+
+.reference-image
+  width: 100%
+  padding-top: 35px
+
+  img
+    display: block
+    margin: auto
+
+.reference-actions
+  padding: 15px
+  a
+    color: black
+    font-weight: 900
+    text-decoration: underline
+
+  .hover-circle
+    +circle(top)
+
+.infobox
+  position: absolute
+  height: 100%
+  width: 360px
+  top: 0px
+  right: 0px
+  display: none
+
+  background-color: $red-light
+  border-left: 1px solid white
+  color: white
+
+  .info-content
+    height: 100%
+    padding: 50px
+    *
+      max-width: 320px
+
+    .tags
+      padding: 10px 0 30px
+      text-transform: uppercase
+      font-weight: 900
+
+  a
+    height: 100%
+    color: white
+    text-decoration: none
+
+  .circle
+    +circle(bottom)

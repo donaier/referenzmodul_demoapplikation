@@ -1,0 +1,20 @@
+de:
+  activerecord:
+    attributes:
+      reference_asset:
+        asset: Datei
+        youtube: Video von YouTube?
+        href: Videolink
+        embed_code: HTML Code
+        size: Grösse
+        position: Position
+        text: Text
+    errors:
+      models:
+        reference_asset:
+          attributes:
+            valid_source:
+              blank: Bitte geben sie eine gültige Videoquelle an (Link oder HTML-Code)
+
+  models:
+    reference_asset: Referenz Asset

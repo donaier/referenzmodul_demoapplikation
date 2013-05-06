@@ -1,0 +1,51 @@
+$grey-0: #CCC
+$grey-1: #DDD
+$grey-2: #EEE
+$red-light: #FF5050
+$red: #AA003C
+
+@mixin circle($bg-pos)
+  position: absolute
+  bottom: 16px
+  right: 16px
+  width: 16px
+  height: 16px
+  background-image:  image-url('icons/kringel.png')
+  background-image:  none, image-url('icons/kringel.svg')
+  background-repeat: no-repeat
+  background-position: $bg-pos
+
+body
+  font-family: myriad-pro-1, myriad-pro-2, sans-serif
+  font-weight: normal
+  font-size: 100%
+
+h1
+  text-transform: uppercase
+  font-weight: 900
+  font-size: 82px
+  line-height: 1em
+
+h2
+  text-transform: uppercase
+  font-weight: 900
+  font-size: 42px
+  line-height: 1.1em
+
+h3
+  text-transform: uppercase
+  font-weight: 900
+  font-size: 26px
+  line-height: 1.1em
+
+.container
+  padding-top: 20px
+  width: 1200px
+
+.hidden
+  display: none !important
+
+.clearfix:after
+  display: block
+  height: 0
+  clear: both

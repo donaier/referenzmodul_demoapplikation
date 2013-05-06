@@ -1,0 +1,22 @@
+%table.table.table-bordered.sortable-table
+  %tr
+    %th= ReferenceBranch.human_attribute_name :name
+    %th= ReferenceBranch.human_attribute_name :text
+
+  - @cms_reference.reference_topics.each do |topic|
+    %tr
+      %td= topic.name
+      %td= topic.text
+
+%br
+%h3= t('.select_topics')
+%hr
+
+= simple_form_for([:cms, @cms_reference], :html => { :class => 'form-horizontal' } ) do |f|
+  = f.error_notification
+
+  - ReferenceTopicCategory.all.each do |category|
+    .form-inputs
+      = f.association :reference_topics, :collection => category.reference_topics, :as => :check_boxes, :label => category.name
+  .form-actions
+    = f.button :submit

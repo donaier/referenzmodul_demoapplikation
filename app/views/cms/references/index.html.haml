@@ -1,0 +1,78 @@
+%h1= t('.title')
+
+.row-fluid.actions
+  .pull-right.padded
+    = link_to new_cms_reference_path, :class => 'btn btn-primary' do
+      %i.icon-plus-sign.icon-white
+      #{ t('.new') }
+
+%ul#reference-tabs.nav.nav-tabs
+  %li.active
+    = link_to t('.all_references'), '#all-references'
+  %li
+    = link_to t('.showcase_references'), '#showcase'
+
+.tab-content
+  #all-references.tab-pane.active
+    %table.table.table-bordered.sortable-table
+      %tr
+        %th
+        %th= Reference.human_attribute_name :title
+        %th= Reference.human_attribute_name :customer
+        %th= Reference.human_attribute_name :page_url
+        %th= Reference.human_attribute_name :year
+        %th= Reference.human_attribute_name :status
+        %th
+        %th
+        %th
+
+      %tbody
+        - @cms_references.each do |cms_reference|
+          %tr.sortable-row
+            %td
+              .handle
+                %i.icon-resize-vertical
+              = form_for [:cms, cms_reference], :remote => true do |f|
+                = f.hidden_field :position, :class => 'position-field'
+            %td= cms_reference.title
+            %td= cms_reference.customer
+            %td= cms_reference.page_url
+            %td= cms_reference.year
+            %td{ :class => "#{cms_reference.status}-cell" }= cms_reference.status
+            %td= link_to t('cms.show'), cms_reference_path(cms_reference)
+            %td= link_to t('cms.edit'), edit_cms_reference_path(cms_reference)
+            %td= link_to t('cms.destroy'), cms_reference_path(cms_reference), method: :delete, data: { confirm: t('cms.are_you_sure') }
+
+    %br
+
+
+  #showcase.tab-pane
+    %table.table.table-bordered.sortable-table
+      %tr
+        %th
+        %th= Reference.human_attribute_name :title
+        %th= Reference.human_attribute_name :customer
+        %th= Reference.human_attribute_name :page_url
+        %th= Reference.human_attribute_name :year
+        %th= Reference.human_attribute_name :status
+        %th
+        %th
+        %th
+      %tbody
+        - @cms_references_showcase.each do |cms_reference|
+          %tr.sortable-row
+            %td
+              .handle
+                %i.icon-resize-vertical
+              = form_for [:cms, cms_reference], :remote => true do |f|
+                = f.hidden_field :showcase_position, :class => 'position-field'
+            %td= cms_reference.title
+            %td= cms_reference.customer
+            %td= cms_reference.page_url
+            %td= cms_reference.year
+            %td{ :class => "#{cms_reference.status}-cell" }= cms_reference.status
+            %td= link_to t('cms.show'), cms_reference_path(cms_reference)
+            %td= link_to t('cms.edit'), edit_cms_reference_path(cms_reference)
+            %td= link_to t('cms.destroy'), cms_reference_path(cms_reference), method: :delete, data: { confirm: t('cms.are_you_sure') }
+
+    %br

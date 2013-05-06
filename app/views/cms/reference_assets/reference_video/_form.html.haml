@@ -1,0 +1,16 @@
+= f.error_notification
+
+.form-inputs
+  = f.input :title
+  = f.input :main_asset
+  = f.input :href
+  = f.input :youtube, :input_html => { :checked => true }, :disabled => true
+  = f.input :embed_code, :disabled => true
+  = f.input :size, :collection => ReferenceAsset::ASSET_SIZES, :as => :radio_buttons, :checked => 'large'
+  = f.input :position
+  = f.input :text
+  = f.hidden_field :type
+  = f.hidden_field :reference_id
+
+.form-actions
+  = f.button :submit
